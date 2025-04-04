@@ -2,7 +2,7 @@
 **Tittle: Hysterectomy, oophorectomy, and bone health: a systematic review and meta-analysis
 ** Author: M Shariful Islam et al 2025
 ** Organization: The University of Queensland
-** Created 25 Feb 2025
+** Created 4 April 2025
 ********************************************************
 
 **steps
@@ -12,12 +12,13 @@
 *Table of contents:
 **Figure 2 Forest plot showing the association between hysterectomy and/or oophorectomy and risk of fracture
 **Figure 3 Forest plot for the association between hysterectomy and/or oophorectomy and osteoporosis
-**Supplementary Figure 2:The leave-one-out meta-analysis demonstrates the stability of the results by re-running the analysis each time one study is excluded. Here outcome is fracture, exposure is BO-hysterectomy unspecified, and the comparison group is no oophorectomy-hysterectomy unspecified. 
-**Supplementary Figure 3: Forest plot showing the risk of any fracture after BO- hysterectomy unspecified compared to no oophorectomy- hysterectomy unspecified among women with no MHT use
-**Supplementary Figure 4: Forest plot showing the association of hysterectomy and oophorectomy with fracture (Sensitivity analysis using Hartung-Knapp-Sidik-Jonkman (HKSJ) method)
-**Supplementary Figure 5: Forest plot showing the risk of fracture stratified by menopausal status at surgery
-**Supplementary Figure 6: The leave-one-out meta-analysis demonstrates the stability of the results by re-running the analysis each time one study is excluded. Here, the outcome is osteoporosis, exposure is BO-hysterectomy unspecified, and the comparison group is no oophorectomy-hysterectomy unspecified. 
-**Supplementary Figure 7: Forest plot showing the association of hysterectomy and oophorectomy with osteoporosis (Sensitivity analysis using Hartung-Knapp-Sidik-Jonkman (HKSJ) method)
+**Supplementary Figure 2:The leave-one-out meta-analysis demonstrates the stability of the results by re-running the analysis each time one study is excluded. Here outcome is fracture, the exposure is hysterectomy-BO, and the comparison group is hysterectomy alone. 
+**Supplementary Figure 3:The leave-one-out meta-analysis demonstrates the stability of the results by re-running the analysis each time one study is excluded. Here outcome is fracture, exposure is BO-hysterectomy unspecified, and the comparison group is no oophorectomy-hysterectomy unspecified. 
+**Supplementary Figure 4: Forest plot showing the risk of any fracture after BO- hysterectomy unspecified compared to no oophorectomy- hysterectomy unspecified among women with no MHT use
+**Supplementary Figure 5: Forest plot showing the association of hysterectomy and oophorectomy with fracture (Sensitivity analysis using Hartung-Knapp-Sidik-Jonkman (HKSJ) method)
+**Supplementary Figure 6: Forest plot showing the risk of fracture stratified by menopausal status at surgery
+**Supplementary Figure 7: The leave-one-out meta-analysis demonstrates the stability of the results by re-running the analysis each time one study is excluded. Here, the outcome is osteoporosis, exposure is BO-hysterectomy unspecified, and the comparison group is no oophorectomy-hysterectomy unspecified. 
+**Supplementary Figure 8: Forest plot showing the association of hysterectomy and oophorectomy with osteoporosis (Sensitivity analysis using Hartung-Knapp-Sidik-Jonkman (HKSJ) method)
 
 
 
@@ -54,24 +55,43 @@ forestplot(favours(Decreased Risk#Increased Risk) xlabel(.5,1,2,3)  xsize(8) for
 graph export "figure3.png", width(11500) height(3900) 
 ****************************************************************************************************************************************************************************************
 
-**Supplementary Figure 2:The leave-one-out meta-analysis demonstrates the stability of the results by re-running the analysis each time one study is excluded. Here outcome is fracture, exposure is BO-hysterectomy unspecified, and the comparison group is no oophorectomy-hysterectomy unspecified. 
+**Supplementary Figure 2:The leave-one-out meta-analysis demonstrates the stability of the results by re-running the analysis each time one study is excluded. Here outcome is fracture, the exposure is hysterectomy-BO, and the comparison group is hysterectomy alone. 
+**************************************************************************************************************************************************************************************** 
+
+clear
+*set up directory
+cd "C:\Users\s4773888\OneDrive - The University of Queensland\PhD\sys rev\stata"
+*use dataset for figure 2
+use "figure2.dta"
+ 
+
+	 meta set logrr loglowCI loghighCI  if Subgroup == 1, civartolerance(1e-0) studylabel(Author)
+ meta forestplot, leaveoneout  eform(Relative risk) sort (rev_Publishing_year)
+ meta summarize, leaveoneout
+
+ graph export "sfigure2a.png", width(5700) height(2500) 
 ****************************************************************************************************************************************************************************************
+
+
+**Supplementary Figure 3:The leave-one-out meta-analysis demonstrates the stability of the results by re-running the analysis each time one study is excluded. Here outcome is fracture, exposure is BO-hysterectomy unspecified, and the comparison group is no oophorectomy-hysterectomy unspecified. 
+****************************************************************************************************************************************************************************************
+
 clear
 
 cd "C:\Users\s4773888\OneDrive - The University of Queensland\PhD\sys rev\stata"
-use "sfigure2.dta"
+use "sfigure3.dta"
   meta set logrr logSE, studylabel(Author)
  meta forestplot, leaveoneout  eform(Relative risk) sort (rev_Publishing_year)
  meta summarize, leaveoneout
  
  
- graph export "sfigure2.png", width(3700) height(2500) 
+ graph export "sfigure3.png", width(3700) height(2500) 
  
  
  
 ****************************************************************************************************
 
-**Supplementary Figure 3: Forest plot showing the risk of any fracture after BO- hysterectomy unspecified compared to no oophorectomy- hysterectomy unspecified among women with no MHT use. 
+**Supplementary Figure 4: Forest plot showing the risk of any fracture after BO- hysterectomy unspecified compared to no oophorectomy- hysterectomy unspecified among women with no MHT use. 
 ****************************************************************************************************************************************************************************************
 clear
 *set up directory
@@ -89,7 +109,7 @@ graph export "Sfigure3.png", width(11000) height(4000)
 
 
 
-**Supplementary Figure 4: Forest plot showing the association of hysterectomy and oophorectomy with fracture (Sensitivity analysis using Hartung-Knapp-Sidik-Jonkman (HKSJ) method). 
+**Supplementary Figure 5: Forest plot showing the association of hysterectomy and oophorectomy with fracture (Sensitivity analysis using Hartung-Knapp-Sidik-Jonkman (HKSJ) method). 
 ****************************************************************************************************************************************************************************************
 
 
@@ -110,7 +130,7 @@ graph export "Sfigure4.png", width(16000) height(5300)
 
 
  
-**Supplementary Figure 5: Forest plot showing the risk of fracture stratified by menopausal status at surgery. 
+**Supplementary Figure 6: Forest plot showing the risk of fracture stratified by menopausal status at surgery. 
 **************************************************************************************************************
 clear
 
@@ -124,7 +144,7 @@ forestplot(favours(Decreased Risk#Increased Risk) xlabel(.5,1,2,3)  xsize(8) for
 graph export "Sfigure5.png", width(13500) height(3900) 
 ****************************************************************************************************************************************************************************************
 
-**Supplementary Figure 6: The leave-one-out meta-analysis demonstrates the stability of the results by re-running the analysis each time one study is excluded. Here, the outcome is osteoporosis, exposure is BO-hysterectomy unspecified, and the comparison group is no oophorectomy-hysterectomy unspecified. 
+**Supplementary Figure 7: The leave-one-out meta-analysis demonstrates the stability of the results by re-running the analysis each time one study is excluded. Here, the outcome is osteoporosis, exposure is BO-hysterectomy unspecified, and the comparison group is no oophorectomy-hysterectomy unspecified. 
 
 
 clear
@@ -143,7 +163,7 @@ use "sfigure6.dta"
 
 
 
-**Supplementary Figure 7: Forest plot showing the association of hysterectomy and oophorectomy with osteoporosis (Sensitivity analysis using Hartung-Knapp-Sidik-Jonkman (HKSJ) method). 
+**Supplementary Figure 8: Forest plot showing the association of hysterectomy and oophorectomy with osteoporosis (Sensitivity analysis using Hartung-Knapp-Sidik-Jonkman (HKSJ) method). 
 ****************************************************************************************************************************************************************************************
 clear
 
