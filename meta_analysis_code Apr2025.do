@@ -115,7 +115,7 @@ graph export "Sfigure4.png", width(11000) height(4000)
 clear
 *set up directory
 cd "C:\Users\s4773888\OneDrive - The University of Queensland\PhD\sys rev\stata"
-*dataset would be same as figure 2. use dataset for figure 2
+*The dataset would be the same as the data for figure 2. use dataset for figure 2
 use "figure2.dta"
  
  
@@ -134,7 +134,7 @@ graph export "Sfigure5.png", width(16000) height(5300)
 clear
 
 cd "C:\Users\s4773888\OneDrive - The University of Queensland\PhD\sys rev\stata"
-use "sfigure5.dta"
+use "sfigure6.dta"
 
 
 
