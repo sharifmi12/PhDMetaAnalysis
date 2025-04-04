@@ -16,7 +16,7 @@
 **Supplementary Figure 2: Forest plot showing the risk of fracture stratified by menopausal status at surgery
 **Supplementary Figure 3:The leave-one-out meta-analysis demonstrates the stability of the results by re-running the analysis each time one study is excluded. Here outcome is fracture, exposure is BO-hysterectomy unspecified, and the comparison group is no oophorectomy-hysterectomy unspecified. 
 **Supplementary Figure 4: Forest plot showing the risk of any fracture after BO- hysterectomy unspecified compared to no oophorectomy- hysterectomy unspecified among women with no MHT use
-**Supplementary Figure 5: Forest plot showing the association of hysterectomy and oophorectomy with fracture (Sensitivity analysis using Hartung-Knapp-Sidik-Jonkman (HKSJ) method)
+**Supplementary Figure 6: Forest plot showing the association of hysterectomy and oophorectomy with fracture (Sensitivity analysis using Hartung-Knapp-Sidik-Jonkman (HKSJ) method)
 **Supplementary Figure 7: The leave-one-out meta-analysis demonstrates the stability of the results by re-running the analysis each time one study is excluded. Here, the outcome is osteoporosis, exposure is BO-hysterectomy unspecified, and the comparison group is no oophorectomy-hysterectomy unspecified. 
 **Supplementary Figure 8: Forest plot showing the association of hysterectomy and oophorectomy with osteoporosis (Sensitivity analysis using Hartung-Knapp-Sidik-Jonkman (HKSJ) method)
 
@@ -123,7 +123,7 @@ graph export "Sfigure4.png", width(11000) height(4000)
 
 
 
-**Supplementary Figure 5: Forest plot showing the association of hysterectomy and oophorectomy with fracture (Sensitivity analysis using Hartung-Knapp-Sidik-Jonkman (HKSJ) method). 
+**Supplementary Figure 6: Forest plot showing the association of hysterectomy and oophorectomy with fracture (Sensitivity analysis using Hartung-Knapp-Sidik-Jonkman (HKSJ) method). 
 ****************************************************************************************************************************************************************************************
 
 
@@ -136,7 +136,7 @@ use "figure2.dta"
  
 metan logrr loglowCI loghighCI, by(Subgroup) sortby(rev_Publishing_year) model(random, hksj)  eform  lcols (Author ExposureN ComparisonN Age MHT)  effect(Relative risk) texts (160)  boxsca(3) labtitle(Studies) ///
 forestplot(favours(Decreased Risk#Increased Risk) xlabel(.5,1,2,3)  xsize(8) force nooverall) 
-graph export "Sfigure5.png", width(16000) height(5300)  
+graph export "Sfigure6.png", width(16000) height(5300)  
 ****************************************************************************************************************************************************************************************
 
 
