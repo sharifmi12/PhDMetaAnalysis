@@ -17,7 +17,7 @@
 **Supplementary Figure 3:The leave-one-out meta-analysis demonstrates the stability of the results by re-running the analysis each time one study is excluded. Here outcome is fracture, exposure is BO-hysterectomy unspecified, and the comparison group is no oophorectomy-hysterectomy unspecified. 
 **Supplementary Figure 4: Forest plot showing the risk of any fracture after BO- hysterectomy unspecified compared to no oophorectomy- hysterectomy unspecified among women with no MHT use
 **Supplementary Figure 6: Forest plot showing the risk of any fracture after hysterectomy-oophorectomy unspecified compared to no hysterectomy-oophorectomy unspecified among studies considering MHT use in their analysis. 
-Supplementary Figure 7: Forest plot showing the association of hysterectomy and oophorectomy with fracture (Sensitivity analysis using Hartung-Knapp-Sidik-Jonkman (HKSJ) method)
+**Supplementary Figure 7: Forest plot showing the association of hysterectomy and oophorectomy with fracture (Sensitivity analysis using Hartung-Knapp-Sidik-Jonkman (HKSJ) method)
 **Supplementary Figure 8: The leave-one-out meta-analysis demonstrates the stability of the results by re-running the analysis each time one study is excluded. Here, the outcome is osteoporosis, exposure is BO-hysterectomy unspecified, and the comparison group is no oophorectomy-hysterectomy unspecified. 
 **Supplementary Figure 9: Forest plot showing the association of hysterectomy and oophorectomy with osteoporosis (Sensitivity analysis using Hartung-Knapp-Sidik-Jonkman (HKSJ) method)
 
