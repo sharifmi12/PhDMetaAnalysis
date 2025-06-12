@@ -191,7 +191,18 @@ graph export "sfigure9.png", width(11600) height(3900)
 
 
 
+***Supplementary Figure XX: Forest plot showing the risk of any fracture after hysterectomy-oophorectomy unspecified compared to no hysterectomy-oophorectomy unspecified among studies surgery >45 in their analysis. 
+****************************************************************************************************************************************************************************************
+ 
+clear
+*set up directory
+cd "C:\Users\s4773888\OneDrive - The University of Queensland\PhD\sys rev\stata"
+*use dataset for figure 2
+use "figure2.dta"
 
+ 	metan logrr loglowCI loghighCI if Author !="Thong 2022", by(Subgroup) sortby(rev_Publishing_year) random (dl) eform  lcols (Author ExposureN ComparisonN Age MHT)  effect(Relative risk) texts (160)  boxsca(3) labtitle(Studies) ///
+forestplot(favours(Decreased Risk#Increased Risk) xlabel(.5,1,2,3)  xsize(8) force nooverall) 
+graph export "figurexx.png", width(16000) height(5300)
 
 
 
