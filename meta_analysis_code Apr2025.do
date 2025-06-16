@@ -17,9 +17,11 @@
 **Supplementary Figure 3:The leave-one-out meta-analysis demonstrates the stability of the results by re-running the analysis each time one study is excluded. Here outcome is fracture, exposure is BO-hysterectomy unspecified, and the comparison group is no oophorectomy-hysterectomy unspecified. 
 **Supplementary Figure 4: Forest plot showing the risk of any fracture after BO- hysterectomy unspecified compared to no oophorectomy- hysterectomy unspecified among women with no MHT use
 **Supplementary Figure 6: Forest plot showing the risk of any fracture after hysterectomy-oophorectomy unspecified compared to no hysterectomy-oophorectomy unspecified among studies considering MHT use in their analysis. 
-**Supplementary Figure 7: Forest plot showing the association of hysterectomy and oophorectomy with fracture (Sensitivity analysis using Hartung-Knapp-Sidik-Jonkman (HKSJ) method)
-**Supplementary Figure 8: The leave-one-out meta-analysis demonstrates the stability of the results by re-running the analysis each time one study is excluded. Here, the outcome is osteoporosis, exposure is BO-hysterectomy unspecified, and the comparison group is no oophorectomy-hysterectomy unspecified. 
-**Supplementary Figure 9: Forest plot showing the association of hysterectomy and oophorectomy with osteoporosis (Sensitivity analysis using Hartung-Knapp-Sidik-Jonkman (HKSJ) method)
+**Supplementary Figure 8: Forest plot showing the association of hysterectomy and oophorectomy with fracture (Sensitivity analysis using Hartung-Knapp-Sidik-Jonkman (HKSJ) method)
+***Supplementary Figure 9: Forest plot showing the risk of osteoporosis after hysterectomy-oophorectomy unspecified compared to no hysterectomy-oophorectomy unspecified among studies surgery >45 in their analysis. 
+
+**Supplementary Figure 10: The leave-one-out meta-analysis demonstrates the stability of the results by re-running the analysis each time one study is excluded. Here, the outcome is osteoporosis, exposure is BO-hysterectomy unspecified, and the comparison group is no oophorectomy-hysterectomy unspecified. 
+**Supplementary Figure 11: Forest plot showing the association of hysterectomy and oophorectomy with osteoporosis (Sensitivity analysis using Hartung-Knapp-Sidik-Jonkman (HKSJ) method)
 
 
 
@@ -88,8 +90,20 @@ forestplot(favours(Decreased Risk#Increased Risk) xlabel(.5,1,2,3)  xsize(8) for
 graph export "Sfigure2.png", width(13500) height(3900) 
 ****************************************************************************************************************************************************************************************
 
+***Supplementary Figure 3: Forest plot showing the risk of any fracture after hysterectomy-oophorectomy unspecified compared to no hysterectomy-oophorectomy unspecified among studies surgery >45 in their analysis. 
+****************************************************************************************************************************************************************************************
+ 
+clear
+*set up directory
+cd "C:\Users\s4773888\OneDrive - The University of Queensland\PhD\sys rev\stata"
+*use dataset for figure 2
+use "figure2.dta"
 
-**Supplementary Figure 3:The leave-one-out meta-analysis demonstrates the stability of the results by re-running the analysis each time one study is excluded. Here outcome is fracture, exposure is BO-hysterectomy unspecified, and the comparison group is no oophorectomy-hysterectomy unspecified. 
+ 	metan logrr loglowCI loghighCI if Author !="Thong 2022", by(Subgroup) sortby(rev_Publishing_year) random (dl) eform  lcols (Author ExposureN ComparisonN Age MHT)  effect(Relative risk) texts (160)  boxsca(3) labtitle(Studies) ///
+forestplot(favours(Decreased Risk#Increased Risk) xlabel(.5,1,2,3)  xsize(8) force nooverall) 
+graph export "sfigure3.png", width(16000) height(5300)
+
+**Supplementary Figure 4:The leave-one-out meta-analysis demonstrates the stability of the results by re-running the analysis each time one study is excluded. Here outcome is fracture, exposure is BO-hysterectomy unspecified, and the comparison group is no oophorectomy-hysterectomy unspecified. 
 ****************************************************************************************************************************************************************************************
 
 clear
@@ -101,28 +115,28 @@ use "sfigure3.dta"
  meta summarize, leaveoneout
  
  
- graph export "sfigure3.png", width(3700) height(2500) 
+ graph export "sfigure4.png", width(3700) height(2500) 
  
  
  
 ****************************************************************************************************
 
-**Supplementary Figure 4: Forest plot showing the risk of any fracture after BO- hysterectomy unspecified compared to no oophorectomy- hysterectomy unspecified among women with no MHT use. 
+**Supplementary Figure 5: Forest plot showing the risk of any fracture after BO- hysterectomy unspecified compared to no oophorectomy- hysterectomy unspecified among women with no MHT use. 
 ****************************************************************************************************************************************************************************************
 clear
 *set up directory
 cd "C:\Users\s4773888\OneDrive - The University of Queensland\PhD\sys rev\stata"
-use "Sfigure4.dta"
+use "Sfigure5.dta"
 
 
  metan logrr loglowCI loghighCI, sortby(rev_Publishing_year) random (dl) eform  lcols (Author Exposure Comparison Age MHT)  effect(Relative risk) texts (160)  boxsca(3) labtitle(Studies) ///
 forestplot(favours(Decreased Risk#Increased Risk) xlabel(.75,1,1.5)  xsize(9) force) 
-graph export "Sfigure4.png", width(11000) height(4000) 
+graph export "Sfigure5.png", width(11000) height(4000) 
 ****************************************************************************************************************************************************************************************
 
 
 
-***Supplementary Figure 6: Forest plot showing the risk of any fracture after hysterectomy-oophorectomy unspecified compared to no hysterectomy-oophorectomy unspecified among studies considering MHT use in their analysis. 
+***Supplementary Figure 7: Forest plot showing the risk of any fracture after hysterectomy-oophorectomy unspecified compared to no hysterectomy-oophorectomy unspecified among studies considering MHT use in their analysis. 
 ****************************************************************************************************************************************************************************************
  
 clear
@@ -133,11 +147,11 @@ use "figure2.dta"
 
  	metan logrr loglowCI loghighCI if Subgroup == 3 & Author !="Kelsey 2005", sortby(rev_Publishing_year) random (dl) eform  lcols (Author ExposureN ComparisonN Age MHT)  effect(Relative risk) texts (160)  boxsca(3) labtitle(Studies) ///
 forestplot(favours(Decreased Risk#Increased Risk) xlabel(.5,1,2,3)  xsize(8) force) 
-graph export "sfigure6.png", width(12500) height(5300) 
+graph export "sfigure7.png", width(12500) height(5300) 
 
  
 
-**Supplementary Figure 7: Forest plot showing the association of hysterectomy and oophorectomy with fracture (Sensitivity analysis using Hartung-Knapp-Sidik-Jonkman (HKSJ) method). 
+**Supplementary Figure 8: Forest plot showing the association of hysterectomy and oophorectomy with fracture (Sensitivity analysis using Hartung-Knapp-Sidik-Jonkman (HKSJ) method). 
 ****************************************************************************************************************************************************************************************
 
 
@@ -150,31 +164,42 @@ use "figure2.dta"
  
 metan logrr loglowCI loghighCI, by(Subgroup) sortby(rev_Publishing_year) model(random, hksj)  eform  lcols (Author ExposureN ComparisonN Age MHT)  effect(Relative risk) texts (160)  boxsca(3) labtitle(Studies) ///
 forestplot(favours(Decreased Risk#Increased Risk) xlabel(.5,1,2,3)  xsize(8) force nooverall) 
-graph export "Sfigure6=7.png", width(16000) height(5300)  
+graph export "Sfigure8.png", width(16000) height(5300)  
 ****************************************************************************************************************************************************************************************
 
 
 
-**Supplementary Figure 8: The leave-one-out meta-analysis demonstrates the stability of the results by re-running the analysis each time one study is excluded. Here, the outcome is osteoporosis, exposure is BO-hysterectomy unspecified, and the comparison group is no oophorectomy-hysterectomy unspecified. 
+***Supplementary Figure 9: Forest plot showing the risk of osteoporosis after hysterectomy-oophorectomy unspecified compared to no hysterectomy-oophorectomy unspecified among studies surgery >45 in their analysis. 
+****************************************************************************************************************************************************************************************
+ 
+clear
+
+cd "C:\Users\s4773888\OneDrive - The University of Queensland\PhD\sys rev\stata"
+use "figure3.dta"
+
+metan logrr loglowCI loghighCI if Author !="Thong 2022", by(Subgroup) sortby(rev_Publishing_year)  random (dl) eform  lcols (Author ExposureN ComparisonN Age MHT)  effect(Relative risk) texts (160)  boxsca(3) labtitle(Studies) ///
+forestplot(favours(Decreased Risk#Increased Risk) xlabel(.5,1,2,3)  xsize(8) force nooverall) 
+graph export "figure3xx.png", width(11500) height(3900) 
+
+
+
+**Supplementary Figure 10: The leave-one-out meta-analysis demonstrates the stability of the results by re-running the analysis each time one study is excluded. Here, the outcome is osteoporosis, exposure is BO-hysterectomy unspecified, and the comparison group is no oophorectomy-hysterectomy unspecified. 
 
 
 clear
 *set up directory
 cd "C:\Users\s4773888\OneDrive - The University of Queensland\PhD\sys rev\stata"
 *use dataset for figure 3
-use "sfigure8.dta"
+use "sfigure10.dta"
 
  meta set logrr logSE, studylabel(Author)
  meta forestplot, leaveoneout  eform(Relative risk) sort (rev_Publishing_year) 
  meta summarize, leaveoneout
  
- graph export "sfigure8.png", width(3700) height(1500) 
+ graph export "sfigure10.png", width(3700) height(1500) 
  
 
-
-
-
-**Supplementary Figure 9: Forest plot showing the association of hysterectomy and oophorectomy with osteoporosis (Sensitivity analysis using Hartung-Knapp-Sidik-Jonkman (HKSJ) method). 
+**Supplementary Figure 11: Forest plot showing the association of hysterectomy and oophorectomy with osteoporosis (Sensitivity analysis using Hartung-Knapp-Sidik-Jonkman (HKSJ) method). 
 ****************************************************************************************************************************************************************************************
 clear
 
@@ -185,24 +210,14 @@ use "figure3.dta"
  
  metan logrr loglowCI loghighCI, by(Subgroup) sortby(rev_Publishing_year) eform  model(random, hksj) lcols (Author ExposureN ComparisonN Age MHT)  effect(Relative risk) texts (160)  boxsca(3) labtitle(Studies) ///
 forestplot(favours(Decreased Risk#Increased Risk) xlabel(.5,1,2,3)  xsize(8) force nooverall) 
-graph export "sfigure9.png", width(11600) height(3900) 
+graph export "sfigure11.png", width(11600) height(3900) 
 ****************************************************************************************************************************************************************************************
 
 
 
 
-***Supplementary Figure XX: Forest plot showing the risk of any fracture after hysterectomy-oophorectomy unspecified compared to no hysterectomy-oophorectomy unspecified among studies surgery >45 in their analysis. 
-****************************************************************************************************************************************************************************************
- 
-clear
-*set up directory
-cd "C:\Users\s4773888\OneDrive - The University of Queensland\PhD\sys rev\stata"
-*use dataset for figure 2
-use "figure2.dta"
 
- 	metan logrr loglowCI loghighCI if Author !="Thong 2022", by(Subgroup) sortby(rev_Publishing_year) random (dl) eform  lcols (Author ExposureN ComparisonN Age MHT)  effect(Relative risk) texts (160)  boxsca(3) labtitle(Studies) ///
-forestplot(favours(Decreased Risk#Increased Risk) xlabel(.5,1,2,3)  xsize(8) force nooverall) 
-graph export "figurexx.png", width(16000) height(5300)
+
 
 
 
