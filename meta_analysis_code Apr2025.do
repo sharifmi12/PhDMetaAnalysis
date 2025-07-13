@@ -15,7 +15,7 @@
 **Supplementary Figure 1:The leave-one-out meta-analysis demonstrates the stability of the results by re-running the analysis each time one study is excluded. Here outcome is fracture, the exposure is hysterectomy-BO, and the comparison group is hysterectomy alone. 
 **Supplementary Figure 2: Forest plot showing the risk of fracture stratified by menopausal status at surgery
 **Supplementary Figure 3:The leave-one-out meta-analysis demonstrates the stability of the results by re-running the analysis each time one study is excluded. Here outcome is fracture, exposure is BO-hysterectomy unspecified, and the comparison group is no oophorectomy-hysterectomy unspecified. 
-**Supplementary Figure 4: Forest plot showing the risk of any fracture after BO-hysterectomy unspecified compared to no oophorectomy- hysterectomy unspecified among women with no MHT use
+**Supplementary Figure 5: Forest plot showing the risk of any fracture after BO-hysterectomy unspecified compared to no oophorectomy- hysterectomy unspecified among women with no MHT use
 **Supplementary Figure 6: Forest plot showing the risk of any fracture after hysterectomy-oophorectomy unspecified compared to no hysterectomy-oophorectomy unspecified among studies considering MHT use in their analysis. 
 **Supplementary Figure 7: Forest plot showing the association of hysterectomy and oophorectomy with fracture (Sensitivity analysis using Hartung-Knapp-Sidik-Jonkman (HKSJ) method)
 **Supplementary Figure 8: The leave-one-out meta-analysis demonstrates the stability of the results by re-running the analysis each time one study is excluded. Here, the outcome is osteoporosis, exposure is BO-hysterectomy unspecified, and the comparison group is no oophorectomy-hysterectomy unspecified. 
@@ -106,17 +106,17 @@ use "sfigure3.dta"
  
 ****************************************************************************************************
 
-**Supplementary Figure 4: Forest plot showing the risk of any fracture after BO- hysterectomy unspecified compared to no oophorectomy- hysterectomy unspecified among women with no MHT use. 
+**Supplementary Figure 5: Forest plot showing the risk of any fracture after BO- hysterectomy unspecified compared to no oophorectomy- hysterectomy unspecified among women with no MHT use. 
 ****************************************************************************************************************************************************************************************
 clear
 *set up directory
 cd "C:\Users\s4773888\OneDrive - The University of Queensland\PhD\sys rev\stata"
-use "Sfigure4.dta"
+use "Sfigure5.dta"
 
 
  metan logrr loglowCI loghighCI, sortby(rev_Publishing_year) random (dl) eform  lcols (Author Exposure Comparison Age MHT)  effect(Relative risk) texts (160)  boxsca(3) labtitle(Studies) ///
 forestplot(favours(Decreased Risk#Increased Risk) xlabel(.75,1,1.5)  xsize(9) force) 
-graph export "Sfigure4.png", width(11000) height(4000) 
+graph export "Sfigure5.png", width(11000) height(4000) 
 ****************************************************************************************************************************************************************************************
 
 
